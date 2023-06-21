@@ -1,0 +1,26 @@
+Package: ProteinReportr
+Imports:
+   dplyr,
+   glue,
+   janitor,
+   magrittr,
+   openxlsx,
+   PerseusR,
+   purrr,
+   stats,
+   stringr,
+   tibble
+Type: Package
+Title: Make Excel Reports from Perseus
+Version: 0.0.0.9000
+Authors@R: 
+    person("Kyle", "Swovick", , "kyle_swovick@urmc.rochester.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Using output from the Perseus proteomics make, create a deliverable excel report. Has columns for protein annotation data (protein name, uniprot accession, and gene name), number of peptides quantified, median protein abundance for each group, p-value from a student's t-test, log2 fold change, and normalized protein abundance (Protein Group MaxLFQ) for each sample. The header is separated from the data by a heavy bottom and and each main category aer separated by a heavy horizontal line.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
