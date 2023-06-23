@@ -9,7 +9,8 @@ make_excel_protein_report(
   user_name,
   work_order,
   excel_file,
-  is_median_abundance = 1
+  is_median_abundance = 1,
+  is_pvalue = 1
 )
 }
 \arguments{
@@ -21,7 +22,9 @@ make_excel_protein_report(
 
 \item{excel_file}{The file name you wish for you excel report to be. Needs to be in quotes and end with '.xlsx'.}
 
-\item{is_median_abundance}{Declare whether or not your data has median abundance columns. If there is, enter 1. If not, enter 0.}
+\item{is_median_abundance}{Declare whether or not your data has median abundance columns. If there are any, enter 1. If not, enter 0.}
+
+\item{is_pvalue}{Declare whether or not your data has p-value columns. If there are any, enter 1. If not, enter 0}
 }
 \value{
 An excel file written to your active directory.
@@ -33,5 +36,7 @@ Convert Perseus report to Excel report
 make_excel_protein_report('Swovick_ProteinReport_23-001.txt',
                           'swovick',
                           '23_001',
-                          'Swovick_Excel_ProteinReport.xlsx')
+                          'Swovick_Excel_ProteinReport.xlsx',
+                          is_median_abundance = 1,
+                          is_pvalue = 1)
 }

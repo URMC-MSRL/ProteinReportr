@@ -1,0 +1,26 @@
+{
+    "id": "D6ECAA68",
+    "path": "C:/Users/kswovick/Box/MSRL/Miscellaneous Projects/Excel report creation/updated-function-conditionals.R",
+    "project_path": null,
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1687540589216.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "w5yn04jpxfo2y",
+        "Source": "Source",
+        "cursorPosition": "488,43",
+        "scrollLine": "138"
+    },
+    "folds": "158|31|188|46|\n189|35|229|0|\n231|27|236|36|\n237|27|242|36|\n243|25|251|4|\n245|33|251|3|\n252|25|257|36|\n258|16|265|4|\n259|23|265|3|\n266|29|271|36|\n274|41|315|0|\n317|32|336|0|\n338|27|350|0|\n351|27|373|0|\n374|25|398|0|\n399|25|421|0|\n422|16|446|0|\n447|30|469|0|\n470|32|470|36|\n471|27|479|38|\n480|27|484|37|\n485|29|488|43|\n",
+    "lastKnownWriteTime": 1687540522,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1687540696115,
+    "read_only": false,
+    "read_only_alternatives": []
+}
