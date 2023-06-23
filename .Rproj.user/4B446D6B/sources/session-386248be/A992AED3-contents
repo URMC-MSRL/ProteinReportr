@@ -22,22 +22,6 @@ change_col_names <- function(df1,
    return(renamed_df2)
 }
 
-#' Convert Perseus report to Excel report
-#'
-#' @param perseus_file The file name of the Perseus output. Needs to be in quotes and end in '.txt'.
-#' @param user_name The last name of the user. Needs to be in quotes and all lowercase.
-#' @param work_order The work order number of the current project. Needs to be in quotes and year and work number separated by '_'.
-#' @param excel_file The file name you wish for you excel report to be. Needs to be in quotes and end with '.xlsx'.
-#' @return An excel file written to your active directory.
-#' @export
-#' @examples
-#' make_excel_protein_report('Swovick_ProteinReport_23-001.txt',
-#'                           'swovick',
-#'                           '23_001',
-#'                           'Swovick_Excel_ProteinReport.xlsx')
-
-#Make the actual function -----
-
 make_excel_protein_report <- function(perseus_file,
                                       user_name,
                                       work_order,
@@ -45,7 +29,7 @@ make_excel_protein_report <- function(perseus_file,
                                       is_median_abundance = 1) {
 
    #Establish values needed later to change column names----
-   is_median_abundance2 = is_median_abundance
+   is_median_abundance2 <- is_median_abundance
    user2 <- glue::glue('{user_name}_')
    wo2 <- glue::glue('_{work_order}')
    number_peptides <- 'number_peptides_'
@@ -172,15 +156,15 @@ make_excel_protein_report <- function(perseus_file,
    #### median abundances, the column names will not have the correct spacing.
    if(is_median_abundance2 == 1) {
       openxlsx::writeData(wb,
-                          'Data',
-                          'Number of Peptides',
-                          startCol = pep_col,
-                          startRow = 1)
+                        'Data',
+                        'Number of Peptides',
+                        startCol = pep_col,
+                        startRow = 1)
       openxlsx::writeData(wb,
-                          'Data',
-                          'Median Abundances',
-                          startCol = med_col,
-                          startRow = 1)
+                        'Data',
+                        'Median Abundances',
+                        startCol = med_col,
+                        startRow = 1)
    } else {
       openxlsx::writeData(wb,
                           'Data',
@@ -261,11 +245,11 @@ make_excel_protein_report <- function(perseus_file,
    #### Median abundance ----
    #### Only performs this if 'median_abundance' is == 1.
    if(is_median_abundance2 == 1) {
-      openxlsx::writeData(wb,
-                          'Data',
-                          median_abundance,
-                          startCol = med_col,
-                          startRow = 2)
+   openxlsx::writeData(wb,
+                       'Data',
+                       median_abundance,
+                       startCol = med_col,
+                       startRow = 2)
    }
    #### Log2 Fold Change ----
    openxlsx::writeData(wb,
@@ -300,14 +284,13 @@ make_excel_protein_report <- function(perseus_file,
                                                     borderStyle = 'medium'),
                       cols = pep_end,
                       rows = 3:length(protein_annotation[[1]]))
-   #### Only performs if 'is_median_abundance' = 1.
    if(is_median_abundance2 == 1) {
       openxlsx::addStyle(wb = wb,
                          sheet = 'Data',
-                         style = openxlsx::createStyle(border = 'Right',
-                                                       borderStyle = 'medium'),
-                         cols = med_end,
-                         rows = 3:length(protein_annotation[[1]]))
+                        style = openxlsx::createStyle(border = 'Right',
+                                                      borderStyle = 'medium'),
+                        cols = med_end,
+                        rows = 3:length(protein_annotation[[1]]))
    }
    openxlsx::addStyle(wb = wb,
                       sheet = 'Data',
@@ -387,29 +370,28 @@ make_excel_protein_report <- function(perseus_file,
                       cols = pep_end)
 
    #### Median abundance ----
-   #### Only performs if 'is_median_abundance' == 1.
    if(is_median_abundance2 == 1) {
       openxlsx::addStyle(wb = wb,
-                         sheet = 'Data',
-                         style = openxlsx::createStyle(fontColour = 'black',
-                                                       halign = 'center',
-                                                       valign = 'center',
-                                                       textDecoration = 'Bold',
-                                                       border = 'Right',
-                                                       borderStyle = 'medium'),
-                         rows = 1,
-                         cols = med_end)
+                        sheet = 'Data',
+                        style = openxlsx::createStyle(fontColour = 'black',
+                                                      halign = 'center',
+                                                      valign = 'center',
+                                                      textDecoration = 'Bold',
+                                                      border = 'Right',
+                                                      borderStyle = 'medium'),
+                        rows = 1,
+                        cols = med_end)
       openxlsx::addStyle(wb = wb,
-                         sheet = 'Data',
-                         style = openxlsx::createStyle(fontColour = 'black',
-                                                       halign = 'center',
-                                                       valign = 'center',
-                                                       textDecoration = 'Bold',
-                                                       border = c('right',
-                                                                  'bottom'),
-                                                       borderStyle = 'medium'),
-                         rows = 2,
-                         cols = med_end)
+                        sheet = 'Data',
+                        style = openxlsx::createStyle(fontColour = 'black',
+                                                      halign = 'center',
+                                                      valign = 'center',
+                                                      textDecoration = 'Bold',
+                                                      border = c('right',
+                                                               'bottom'),
+                                                      borderStyle = 'medium'),
+                        rows = 2,
+                        cols = med_end)
    }
 
    #### Log2 fold change ----
@@ -501,3 +483,9 @@ make_excel_protein_report <- function(perseus_file,
                           excel_file,
                           overwrite = TRUE)
 }
+
+make_excel_protein_report(perseus_file = 'Emerson_ProteinReport_23-151.txt',
+                          user_name = 'emerson',
+                          work_order = '23_151',
+                          excel_file = 'conditiona_function_test.xlsx',
+                          is_median_abundance = 0)
