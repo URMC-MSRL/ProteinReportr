@@ -4,7 +4,13 @@
 \alias{make_excel_protein_report}
 \title{Convert Perseus report to Excel report}
 \usage{
-make_excel_protein_report(perseus_file, user_name, work_order, excel_file)
+make_excel_protein_report(
+  perseus_file,
+  user_name,
+  work_order,
+  excel_file,
+  is_median_abundance = 1
+)
 }
 \arguments{
 \item{perseus_file}{The file name of the Perseus output. Needs to be in quotes and end in '.txt'.}
@@ -14,6 +20,8 @@ make_excel_protein_report(perseus_file, user_name, work_order, excel_file)
 \item{work_order}{The work order number of the current project. Needs to be in quotes and year and work number separated by '_'.}
 
 \item{excel_file}{The file name you wish for you excel report to be. Needs to be in quotes and end with '.xlsx'.}
+
+\item{is_median_abundance}{Declare whether or not your data has median abundance columns. If there is, enter 1. If not, enter 0.}
 }
 \value{
 An excel file written to your active directory.

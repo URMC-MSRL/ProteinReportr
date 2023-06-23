@@ -28,6 +28,7 @@ change_col_names <- function(df1,
 #' @param user_name The last name of the user. Needs to be in quotes and all lowercase.
 #' @param work_order The work order number of the current project. Needs to be in quotes and year and work number separated by '_'.
 #' @param excel_file The file name you wish for you excel report to be. Needs to be in quotes and end with '.xlsx'.
+#' @param is_median_abundance Declare whether or not your data has median abundance columns. If there is, enter 1. If not, enter 0.
 #' @return An excel file written to your active directory.
 #' @export
 #' @examples
