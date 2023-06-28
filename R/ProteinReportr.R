@@ -70,6 +70,12 @@ make_excel_protein_report <- function(perseus_file,
                        'Genes',
                        'Protein Name')
 
+   ##Add extra row of 0s. Due to row merging later, the first row of the protein
+   ##annotation df is removed but not from any of the other df's.
+   protein_annotation <- purrr::map_df(protein_annotation,
+                                       ~c(0,
+                                          .x))
+
    ##Normalized Abundance----
    abundances <- PerseusR::main(protein_report) %>%
       janitor::clean_names()
