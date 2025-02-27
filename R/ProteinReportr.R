@@ -68,7 +68,10 @@ make_excel_protein_report <- function(perseus_file,
                       'Protein.Name')) %>%
       purrr::set_names('Protein Acession',
                        'Genes',
-                       'Protein Name')
+                       'Protein Name') %>%
+  dplyr::mutate(`Protein Name` = gsub('"',
+                                      '',
+                                      `Protein Name`))
 
    ##Add extra row of 0s. Due to row merging later, the first row of the protein
    ##annotation df is removed but not from any of the other df's.
